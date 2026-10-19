@@ -128,6 +128,22 @@ Four more were not retrieved: Reliance's
 net debt (a known citerag miss), and three "why did it move" questions, where the
 fixed headline search text did not reach the headline numbers.
 
+**Tried and rejected: two focused headline searches.** All three "why" facts were in
+the retrieval pool, just below the three passages an answer shows: HDFC Bank's own
+profit at rank 4 behind its subsidiaries' profit paragraphs, Infosys's revenue at 4
+behind its ratio tables, Reliance's consolidated revenue at 10 behind its Jio and
+Retail segment tables. The search text mixed revenue, profit, margin and growth, which
+best matches any table that mentions all four. Replacing it with one search for total
+revenue and one for net profit retrieved two more facts (10/12, from 8/12) but showed
+one fewer (6/12, from 7/12), and the eval fell to 17/23, so it was reverted. The
+excerpt is the reason: matched against "revenue" and "profit after tax", a "Profit
+Before Taxes" row in any income statement outscores "Q1 Revenue at ₹72,275 crore".
+Better retrieval does not help until the excerpt can find a headline figure.
+
+The same run exposed false headings in the excerpt: table fragments such as "J Vs"
+and "Profit/(Loss) of Associates & JVs" pass the heading test and get printed as a
+label in front of an unrelated line. That is a known defect, not yet fixed.
+
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what
 is actually in the warehouse, and run in DuckDB. An unknown symbol, a date outside the
