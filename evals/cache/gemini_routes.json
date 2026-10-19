@@ -1,0 +1,675 @@
+{
+ "gemini-3.1-flash-lite|v1|Average traded volume for TCS from 2026-08-01 to 2026-08-14": {
+  "start_date": "2026-08-01",
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v1|Compare TCS and Infosys operating margins": {
+  "filing_query": "operating margins",
+  "symbols": [
+   "TCS",
+   "INFY"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|Did HDFC Bank's share price go up or down after it announced results?": {
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|Did Reliance's results justify its share price move?": {
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|Explain TCS's stock reaction to its Q1 numbers": {
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|Give me a price target for HDFC Bank": {
+  "refuse_reason": "I cannot provide price targets or investment advice.",
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|How big is Jio's subscriber base?": {
+  "filing_query": "Jio subscriber base",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|How did Infosys stock do in the week after its earnings?": {
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|How did the market react to HDFC Bank's profit growth?": {
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|How many people does TCS employ?": {
+  "filing_query": "headcount",
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|How much did Reliance spend on capex this quarter?": {
+  "filing_query": "capex",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|How much did TCS shares move in the five days after Q1 results?": {
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|ITC fell after results. Was excise duty the reason?": {
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|ITC's highest price between 2026-07-01 and 2026-07-31": {
+  "start_date": "2026-07-01",
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v1|Infosys stock moved after earnings; what did its results say about margins?": {
+  "filing_query": "margins",
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|Is Infosys a good investment?": {
+  "refuse_reason": "I cannot provide investment advice or recommendations on whether a stock is a good investment.",
+  "symbols": [
+   "INFY"
+  ],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|Reliance stock performance from 2026-09-01 to 2026-09-30": {
+  "start_date": "2026-09-01",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v1|Should I buy ITC now?": {
+  "refuse_reason": "I cannot provide investment advice or buy/sell recommendations.",
+  "symbols": [
+   "ITC"
+  ],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|Tell me about the stock market today": {
+  "refuse_reason": "The question does not specify a company or symbol to analyze.",
+  "symbols": [],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|What did HDFC Bank say about bad loans?": {
+  "filing_query": "bad loans",
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|What did Wipro report for Q1?": {
+  "refuse_reason": "Wipro is not among the companies for which filing data is available.",
+  "symbols": [],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|What dividend did TCS declare?": {
+  "filing_query": "dividend",
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|What drove the Reliance share price after its Q1 results?": {
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v1|What is ITC's cigarette segment revenue?": {
+  "filing_query": "cigarette segment revenue",
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|What return did GOODLUCK give between 2026-08-01 and 2026-08-31?": {
+  "refuse_reason": "The company GOODLUCK is not in the list of supported companies for filings, and the price tool is restricted to the provided list of companies.",
+  "symbols": [],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|What was Infosys's revenue in Q1 FY27?": {
+  "filing_query": "revenue",
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|What was the closing price of Reliance on 2026-07-17?": {
+  "start_date": "2026-07-17",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v1|What were HDFC Bank's total deposits at the end of June?": {
+  "filing_query": "total deposits as of June 30 2026",
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "filings"
+  ]
+ },
+ "gemini-3.1-flash-lite|v1|What will TCS's share price be next month?": {
+  "refuse_reason": "I cannot provide price predictions or investment advice.",
+  "symbols": [
+   "TCS"
+  ],
+  "tools": []
+ },
+ "gemini-3.1-flash-lite|v1|Why did HDFC Bank shares fall after results?": {
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|Average traded volume for TCS from 2026-08-01 to 2026-08-14": {
+  "end_date": "2026-08-14",
+  "filing_query": null,
+  "metric": "avg_volume",
+  "refuse_reason": null,
+  "start_date": "2026-08-01",
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v2|Compare TCS and Infosys operating margins": {
+  "end_date": null,
+  "filing_query": "operating margins",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "TCS",
+   "INFY"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|Did HDFC Bank's share price go up or down after it announced results?": {
+  "end_date": null,
+  "filing_query": "share price performance after results",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|Did Reliance's results justify its share price move?": {
+  "end_date": null,
+  "filing_query": "drivers of share price performance and financial results",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|Explain TCS's stock reaction to its Q1 numbers": {
+  "end_date": null,
+  "filing_query": "stock price reaction drivers",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|Give me a price target for HDFC Bank": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "I cannot provide price targets or investment advice.",
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|How big is Jio's subscriber base?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "Jio is not among the companies for which filing data is available.",
+  "start_date": null,
+  "symbols": [],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|How did Infosys stock do in the week after its earnings?": {
+  "end_date": null,
+  "filing_query": "performance drivers",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|How did the market react to HDFC Bank's profit growth?": {
+  "end_date": null,
+  "filing_query": "profit growth",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|How many people does TCS employ?": {
+  "end_date": null,
+  "filing_query": "headcount",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|How much did Reliance spend on capex this quarter?": {
+  "end_date": null,
+  "filing_query": "capex",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|How much did TCS shares move in the five days after Q1 results?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|ITC fell after results. Was excise duty the reason?": {
+  "end_date": null,
+  "filing_query": "excise duty",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|ITC's highest price between 2026-07-01 and 2026-07-31": {
+  "end_date": "2026-07-31",
+  "filing_query": null,
+  "metric": "high",
+  "refuse_reason": null,
+  "start_date": "2026-07-01",
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v2|Infosys stock moved after earnings; what did its results say about margins?": {
+  "end_date": null,
+  "filing_query": "margins",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|Is Infosys a good investment?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "I cannot provide investment advice.",
+  "start_date": null,
+  "symbols": [],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|Reliance stock performance from 2026-09-01 to 2026-09-30": {
+  "end_date": "2026-09-30",
+  "filing_query": null,
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": "2026-09-01",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v2|Should I buy ITC now?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "I cannot provide buy, sell, or investment advice.",
+  "start_date": null,
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|Tell me about the stock market today": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "The question does not specify a company or symbol and lacks a clear timeframe or metric for analysis.",
+  "start_date": null,
+  "symbols": [],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What did HDFC Bank say about bad loans?": {
+  "end_date": null,
+  "filing_query": "bad loans",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What did Wipro report for Q1?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "Wipro is not among the supported companies for filing analysis.",
+  "start_date": null,
+  "symbols": [],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What dividend did TCS declare?": {
+  "end_date": null,
+  "filing_query": "dividend",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What drove the Reliance share price after its Q1 results?": {
+  "end_date": null,
+  "filing_query": "drivers of performance",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ },
+ "gemini-3.1-flash-lite|v2|What is ITC's cigarette segment revenue?": {
+  "end_date": null,
+  "filing_query": "cigarette segment revenue",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "ITC"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What return did GOODLUCK give between 2026-08-01 and 2026-08-31?": {
+  "end_date": "2026-08-31",
+  "filing_query": null,
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": "2026-08-01",
+  "symbols": [
+   "GOODLUCK"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v2|What was Infosys's revenue in Q1 FY27?": {
+  "end_date": null,
+  "filing_query": "revenue",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "INFY"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What was the closing price of Reliance on 2026-07-17?": {
+  "end_date": "2026-07-17",
+  "filing_query": null,
+  "metric": "close_on",
+  "refuse_reason": null,
+  "start_date": "2026-07-17",
+  "symbols": [
+   "RELIANCE"
+  ],
+  "tools": [
+   "price"
+  ],
+  "window": "dates"
+ },
+ "gemini-3.1-flash-lite|v2|What were HDFC Bank's total deposits at the end of June?": {
+  "end_date": null,
+  "filing_query": "total deposits",
+  "metric": null,
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "filings"
+  ],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|What will TCS's share price be next month?": {
+  "end_date": null,
+  "filing_query": null,
+  "metric": null,
+  "refuse_reason": "I cannot provide price predictions or future share price targets.",
+  "start_date": null,
+  "symbols": [
+   "TCS"
+  ],
+  "tools": [],
+  "window": null
+ },
+ "gemini-3.1-flash-lite|v2|Why did HDFC Bank shares fall after results?": {
+  "end_date": null,
+  "filing_query": "reasons for share price movement after Q1 FY27 results",
+  "metric": "return_pct",
+  "refuse_reason": null,
+  "start_date": null,
+  "symbols": [
+   "HDFCBANK"
+  ],
+  "tools": [
+   "price",
+   "filings"
+  ],
+  "window": "after_results"
+ }
+}

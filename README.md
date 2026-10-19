@@ -51,16 +51,39 @@ python -m market_analyst.router_eval --out evals/runs/rule_based.json
 | Router | Correct | price | filings | both | refuse | multi | over-refused | under-refused |
 |---|---|---|---|---|---|---|---|---|
 | rule-based | **26/30 (0.867)** | 8/8 | 7/8 | 5/7 | 6/6 | 0/1 | 3 | 0 |
+| `gemini-3.1-flash-lite`, schema v1 | 22/30 (0.733) | 1/8 | 8/8 | 7/7 | 6/6 | 0/1 | 6 | 0 |
+| `gemini-3.1-flash-lite`, schema v2 | **26/30 (0.867)** | 6/8 | 7/8 | 7/7 | 6/6 | 0/1 | 2 | 0 |
 
-It never answered a question it should have refused. It refused three it should have
-answered: "How many people does TCS employ?" ("employ" is not a filing word), "Did
-Reliance's results justify its share price move?" (no dates and no "after results"),
-and "Compare TCS and Infosys operating margins" (one company per question). It also
-treated "What drove the Reliance share price after its Q1 results?" as price only.
+```bash
+python -m market_analyst.router_eval --router gemini --model gemini-3.1-flash-lite --out evals/runs/gemini.json
+```
 
-The same person wrote the router and the questions, so this is not an independent test
-and the number is likely optimistic. The rules were not tuned to these misses; they are
-the bar a model-based router has to clear on the same set.
+Neither router answered a question it should have refused.
+
+**The two tie, and miss different questions.** The rule-based router refused three it
+should have answered: "How many people does TCS employ?" ("employ" is not a filing
+word), "Did Reliance's results justify its share price move?" (no dates and no "after
+results"), and the two-company comparison. It also treated "What drove the Reliance
+share price after its Q1 results?" as price only. Gemini got every "both" question,
+which is where wording varies most. Two of its misses add work rather than refuse: it
+also searched the filing for "how did the stock do after earnings". The third is a gap
+in its prompt: it was never told Jio belongs to Reliance, which the rule-based router
+knows as an alias. One router or the other gets 29 of 30 right.
+
+**Schema v1 was a bug in the harness, not the model.** It required only `tools` and
+`symbols`, so flash-lite left out `metric` and `end_date`: "ITC's highest price between
+2026-07-01 and 2026-07-31" came back with neither, defaulted to a return and was
+rejected for a missing date. v2 requires every field (each may be null). The change was
+made after seeing v1's misses, so v2 is not blind to this set; v1 stays in the table.
+
+Neither router can answer q27, which compares two companies: a `Route` holds one.
+
+**Caveats.** The same person wrote the routers and the questions, so this is not an
+independent test. Each Gemini score is one run at temperature 0. The rules were not
+tuned to their misses. Every Gemini reply is cached by model, schema version and
+question in `evals/cache/`, so a run can be re-scored without spending quota, and a run
+stopped by the daily limit resumes where it stopped. Models are pinned ids, never a
+`-latest` alias, and kept off the ones another project on this machine runs daily.
 
 ## Price tool
 

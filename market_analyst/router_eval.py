@@ -6,6 +6,10 @@ warehouse (for symbols and trading days) but no filings index and no API key.
 
     python -m market_analyst.router_eval                 # rule_based
     python -m market_analyst.router_eval --out evals/runs/rule_based.json
+    python -m market_analyst.router_eval --router gemini --model gemini-3.1-flash-lite --out evals/runs/gemini.json
+
+A gemini run caches every reply, so if the daily quota runs out partway it stops
+and the same command resumes from where it stopped.
 """
 from __future__ import annotations
 
@@ -20,7 +24,14 @@ from .prices import connect, vocabulary
 from .router import Route, route
 
 SET_PATH = Path(__file__).resolve().parents[1] / "evals" / "router_set.json"
-ROUTERS: dict[str, Callable] = {"rule_based": route}
+ROUTERS = ("rule_based", "gemini")
+
+
+def make_router(name: str, model: str | None = None) -> Callable:
+    if name == "rule_based":
+        return route
+    from .gemini_router import LADDER, GeminiRouter
+    return GeminiRouter(model or LADDER[0])
 
 
 def companies_of(r: Route) -> list[str]:
@@ -66,16 +77,23 @@ def summarize(rows: list[dict]) -> dict:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--router", default="rule_based", choices=sorted(ROUTERS))
+    ap.add_argument("--router", default="rule_based", choices=ROUTERS)
+    ap.add_argument("--model", help="gemini model id (pinned, one per run)")
     ap.add_argument("--out", type=Path)
     args = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
 
     questions = json.loads(SET_PATH.read_text(encoding="utf-8"))["questions"]
     con = connect()
-    result = {"router": args.router, **score(ROUTERS[args.router], questions, vocabulary(con), con)}
+    router = make_router(args.router, args.model)
+    name = args.router if args.router == "rule_based" else router.model
+    try:
+        result = {"router": name, **score(router, questions, vocabulary(con), con)}
+    except Exception as e:  # QuotaExhausted, or a model that will not answer
+        print(f"{name}: stopped: {e}. Replies so far are cached; re-run to resume.")
+        return 1
     s = result["summary"]
-    print(f"{args.router}: {s['correct']}/{s['n']} correct ({s['accuracy']:.3f})")
+    print(f"{name}: {s['correct']}/{s['n']} correct ({s['accuracy']:.3f})")
     print("by category:", ", ".join(f"{c} {v}" for c, v in s["by_category"].items()))
     print(f"over-refused (answerable, refused): {s['over_refused']}   "
           f"under-refused (should refuse, answered): {s['under_refused']}")
