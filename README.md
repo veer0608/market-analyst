@@ -172,8 +172,23 @@ questions it was aimed at (18/23 to 21/23, as predicted beforehand) with nothing
 changing. **That is an in-sample number:** the patterns were written while reading these
 same five filings. Tests with phrasings from outside the corpus ("Net profit rose 12% to
 ₹ 890.5 crore", "Revenue for the quarter stood at Rs. 1,234 crore") are the only
-evidence for other companies; how it does on their real releases is unmeasured. If it
-finds nothing, the answer falls back to search.
+evidence for other companies. If it finds nothing, the answer falls back to search.
+
+**Out of sample: one company, 2/2.** `headline.py` was frozen at `62967cc` and run once on
+HCLTech's Q1 FY27 investor release, a company and a format it had never seen, with the
+true figures written into `evals/out_of_sample/labels.json` before the run. It found
+both: revenue ₹34,579 Cr and net income ₹4,624 Cr, on page 3.
+
+```bash
+python -m evals.out_of_sample.run <folder with the PDFs>
+```
+
+Read this as one data point, not a rate. Wipro and ICICI Bank were meant to be the other
+two, but their PDFs could not be fetched (Wipro's site refuses scripted downloads and the
+browser saves did not arrive). The revenue hit is also partly luck of layout: page 3 is an
+infographic whose text comes out as a row of headers ("Revenue EBIT Margin Bookings")
+over a row of values, and the first amount after "Revenue" is right only because
+Revenue is the first column.
 
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what

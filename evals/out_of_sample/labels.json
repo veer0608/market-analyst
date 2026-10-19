@@ -1,0 +1,13 @@
+{
+  "_note": "Headline figures for Q1 FY27 (quarter ended 30 June 2026), labelled by reading each release BEFORE headline.py was run on it. headline.py frozen at commit 62967cc for this test. A hit needs the labelled amount in the extracted snippet.",
+  "releases": [
+    {
+      "company": "HCLTech",
+      "file": "hcltech_q1_fy27.pdf",
+      "source": "HCLTech Q1 FY27 Investor Release, p.3",
+      "revenue": "34,579",
+      "profit": "4,624",
+      "url": "https://www.hcltech.com/sites/default/files/documents/investor-reports/HCLTech_Q1_FY27_Investor_Release.pdf"
+    }
+  ]
+}

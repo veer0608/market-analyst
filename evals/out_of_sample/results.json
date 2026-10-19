@@ -1,0 +1,17 @@
+[
+  {
+    "company": "HCLTech",
+    "revenue": {
+      "want": "34,579",
+      "page": 3,
+      "got": "Revenue EBIT Margin Bookings (New Deal Wins) ₹34,579Cr 16.9%* $2,407M ↑39 bps QoQ ↑56 bps YoY ...",
+      "hit": true
+    },
+    "profit": {
+      "want": "4,624",
+      "page": 3,
+      "got": "Net Income ₹4,624Cr ↓0.9% QoQ ↑3.0% YoY (13.4%* of revenue) ...",
+      "hit": true
+    }
+  }
+]
