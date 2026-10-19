@@ -96,24 +96,35 @@ with itself. Filing facts are the ones verified for citerag's NSE golden set.
 python -m market_analyst.answer_eval --out evals/runs/answers_rule_based.json
 ```
 
-Rule-based router: **16/23 answers pass every check.**
+Rule-based router: **16/23 at baseline, 18/23 after the heading-aware excerpt.**
 
-| Check | Result | What it asks |
-|---|---|---|
-| price window | 12/12 | the expected dates were used |
-| price value | 12/12 | the number matches raw closes, to 0.01 |
-| price shown | 12/12 | that number is in the answer |
-| retrieved | 8/12 | a returned passage holds the filing fact |
-| shown | **5/12** | the fact is visible in the answer, not only retrieved |
-| citations | 12/12 | every citation is the right company |
-| refusal | 23/23 | refused exactly the three it should |
+| Check | Baseline | + headings | What it asks |
+|---|---|---|---|
+| price window | 12/12 | 12/12 | the expected dates were used |
+| price value | 12/12 | 12/12 | the number matches raw closes, to 0.01 |
+| price shown | 12/12 | 12/12 | that number is in the answer |
+| retrieved | 8/12 | 8/12 | a returned passage holds the filing fact |
+| shown | 5/12 | **7/12** | the fact is visible in the answer, not only retrieved |
+| citations | 12/12 | 12/12 | every citation is the right company |
+| refusal | 23/23 | 23/23 | refused exactly the three it should |
 
 Prices are right everywhere, including GOODLUCK's August return across its 2:1 bonus.
 The weak step is the last one: three answers retrieved the fact and then did not show
 it, because the excerpt picks lines by shared words. "Employees" never matches
 "Workforce strength: 593,798"; "NPA" never matches "non-performing assets"; and for
 ITC's cigarettes revenue it picked the cigarettes row from **Segment Assets**, since a
-line scored alone has lost its table heading. Four more were not retrieved: Reliance's
+line scored alone has lost its table heading.
+
+The fix scores each row together with the heading above it and shows the heading
+("1. Segment Revenue: a) FMCG - Cigarettes 15383.55"), so a reader can also tell which
+table a figure is from. It fixed the ITC question, as expected, and broke nothing. It
+also fixed the HDFC NPA question, which was not expected: that one is a tie-break win,
+not understanding. Two lines scored the same, and the new rule prefers the one sitting
+under a heading ("ASSET QUALITY"). Count it as fragile. "Employees" against "Workforce
+strength" is still a miss; a synonym list would fix it, and would also be tuning to
+this set.
+
+Four more were not retrieved: Reliance's
 net debt (a known citerag miss), and three "why did it move" questions, where the
 fixed headline search text did not reach the headline numbers.
 

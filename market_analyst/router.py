@@ -226,17 +226,46 @@ def _premise_check(question: str, price: PriceResult) -> str | None:
     return None
 
 
+# A section heading inside a passage: "1. Segment Revenue", "3. Segment Assets",
+# "Balance sheet data". Numbered, or short with no figures and no closing stop.
+_NUMBERED_HEADING = re.compile(r"^(?:\d{1,2}\.|[ivx]{1,4}\.|[A-Z]\.)\s+[A-Za-z][A-Za-z ,&'/()-]*$")
+
+
+def _is_heading(line: str) -> bool:
+    if _NUMBERED_HEADING.match(line):
+        return True
+    return (len(line) <= 60 and not re.search(r"\d", line) and line[:1].isupper()
+            and not line.endswith((".", ",", ";")))
+
+
 def _excerpt(text: str, query: str | None = None, limit: int = 220) -> str:
-    """The lines of a passage that share the most words with the query, so a
-    table row like "Excise duty 10035.63" is shown rather than the passage's
-    first line. Falls back to the start of the passage."""
+    """The lines of a passage that best match the query, shown under their table
+    heading. A row is scored together with the heading above it, so for "cigarettes
+    segment revenue" the Cigarettes row under "1. Segment Revenue" beats the one
+    under "3. Segment Assets", and the heading is shown with it so the reader can
+    tell which table a figure is from. Falls back to the start of the passage."""
     lines = [" ".join(line.split()) for line in text.splitlines() if line.strip()]
     words = {w for w in re.findall(r"[a-z]{3,}", (query or "").lower()) if w not in _STOP}
     if words and lines:
-        scored = [(sum(w in line.lower() for w in words), i) for i, line in enumerate(lines)]
-        best, i = max(scored, key=lambda s: (s[0], -s[1]))
-        if best:
+        heads: list[str | None] = []
+        current = None
+        for line in lines:
+            if _is_heading(line):
+                heads.append(None)
+                current = line
+            else:
+                heads.append(current)
+
+        def score(i: int) -> int:
+            context = f"{lines[i]} {heads[i] or ''}".lower()
+            return sum(w in context for w in words)
+
+        # Highest score; on a tie a row beats a heading, then the earlier line.
+        i = max(range(len(lines)), key=lambda i: (score(i), heads[i] is not None, -i))
+        if score(i):
             flat = " ".join(lines[i:i + 2])
+            if heads[i]:
+                flat = f"{heads[i]}: {flat}"
             return flat if len(flat) <= limit else flat[:limit].rsplit(" ", 1)[0] + " ..."
     flat = " ".join(lines)
     return flat if len(flat) <= limit else flat[:limit].rsplit(" ", 1)[0] + " ..."

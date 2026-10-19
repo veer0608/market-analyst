@@ -126,3 +126,19 @@ def test_run_uses_the_search_it_is_given(wh):
     a = run("What was ITC's excise duty this quarter?", vocab, con, search=fake_search)
     assert calls == [("What was ITC's excise duty this quarter?", "ITC")]
     assert "nothing that matches" in a.text
+
+
+def test_excerpt_scores_a_row_with_its_table_heading():
+    text = ("1. Segment Revenue\na) FMCG - Cigarettes 15383.55 8520.04\n- Others 6481.95\n"
+            "3. Segment Assets\na) FMCG - Cigarettes 13204.05 10071.82")
+    out = _excerpt(text, "What was ITC's cigarettes segment revenue?")
+    assert out.startswith("1. Segment Revenue: a) FMCG - Cigarettes 15383.55")
+    assert _excerpt(text, "cigarettes segment assets").startswith("3. Segment Assets: a) FMCG - Cigarettes 13204.05")
+
+
+def test_excerpt_heading_detection():
+    from market_analyst.router import _is_heading
+    assert _is_heading("1. Segment Revenue") and _is_heading("ASSET QUALITY") and _is_heading("Balance sheet data")
+    assert not _is_heading("a) FMCG - Cigarettes 15383.55")
+    assert not _is_heading("Gross non-performing assets were at 1.17% of gross advances")
+    assert not _is_heading("The figures for the preceding quarter are restated.")
