@@ -117,10 +117,8 @@ line scored alone has lost its table heading.
 
 The fix scores each row together with the heading above it and shows the heading
 ("1. Segment Revenue: a) FMCG - Cigarettes 15383.55"), so a reader can also tell which
-table a figure is from. It fixed the ITC question, as expected, and broke nothing. It
-also fixed the HDFC NPA question, which was not expected: that one is a tie-break win,
-not understanding. Two lines scored the same, and the new rule prefers the one sitting
-under a heading ("ASSET QUALITY"). Count it as fragile. "Employees" against "Workforce
+table a figure is from. It fixed the ITC question and the HDFC NPA question, and broke
+nothing. Both first won on tie-breaks rather than outright; that was fixed later (below). "Employees" against "Workforce
 strength" is still a miss; a synonym list would fix it, and would also be tuning to
 this set.
 
@@ -140,9 +138,20 @@ excerpt is the reason: matched against "revenue" and "profit after tax", a "Prof
 Before Taxes" row in any income statement outscores "Q1 Revenue at ₹72,275 crore".
 Better retrieval does not help until the excerpt can find a headline figure.
 
-The same run exposed false headings in the excerpt: table fragments such as "J Vs"
-and "Profit/(Loss) of Associates & JVs" pass the heading test and get printed as a
-label in front of an unrelated line. That is a known defect, not yet fixed.
+**False headings, fixed.** The same run exposed table fragments printed as headings in
+front of unrelated lines ("J Vs:", "Profit/(Loss) of Associates & JVs:"). Listing
+every line the heading test accepted across the corpus showed 207, most of them
+fragments: the wrapped second half of a table label, column headers ("Quarter Ended",
+"CC CC"), people's names. A heading is now only a short numbered line ("1. Segment
+Revenue"), a short ALL-CAPS line ("ASSET QUALITY") or a short label ending in a colon:
+35 lines. Title-case headings such as "Balance sheet data" are lost, which costs
+context; a wrong label misleads.
+
+That alone dropped the ITC question (17/23), and finding why showed its earlier pass was
+also a tie-break: "itc" in the question matched the "ITC LIMITED" page header, lifting
+the page title to a tie with the revenue row. The excerpt now ignores the company's
+own name, which every passage of its filing shares. Back to 18/23 with the same checks
+passing, and both the ITC and HDFC NPA answers now win outright, not on a tie.
 
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what

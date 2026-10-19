@@ -138,7 +138,24 @@ def test_excerpt_scores_a_row_with_its_table_heading():
 
 def test_excerpt_heading_detection():
     from market_analyst.router import _is_heading
-    assert _is_heading("1. Segment Revenue") and _is_heading("ASSET QUALITY") and _is_heading("Balance sheet data")
-    assert not _is_heading("a) FMCG - Cigarettes 15383.55")
-    assert not _is_heading("Gross non-performing assets were at 1.17% of gross advances")
-    assert not _is_heading("The figures for the preceding quarter are restated.")
+    for heading in ("1. Segment Revenue", "A. FINANCIAL RESULTS", "ASSET QUALITY", "Capital Adequacy:",
+                    "Net Profit attributable to:"):
+        assert _is_heading(heading), heading
+    # Fragments the earlier, looser rule took for headings, all seen in the corpus.
+    for not_heading in ("J Vs", "Ventures", "Quarter Ended", "CC CC", "###", "(%) (%)", "TV.",
+                        "NSE: HDFCBANK", "NEWS RELEASE HDFC BANK LIMITED,", "Balance sheet data",
+                        "Profit/(Loss) of Associates & JVs", "Rickard Gustafson, CEO, SKF",
+                        "2. The continuing significant brand building costs covering a range of",
+                        "a) FMCG - Cigarettes 15383.55",
+                        "Gross non-performing assets were at 1.17% of gross advances"):
+        assert not _is_heading(not_heading), not_heading
+
+
+def test_excerpt_ignores_the_company_name():
+    # "itc" in the question matched "ITC LIMITED" and lifted the page title to a
+    # tie with the revenue row.
+    text = ("ITC LIMITED\nSegment-wise Revenue, Results, Assets and Liabilities\n"
+            "1. Segment Revenue\na) FMCG - Cigarettes 15383.55 8520.04")
+    q = "What was ITC's cigarettes segment revenue?"
+    assert "Segment-wise" in _excerpt(text, q)
+    assert _excerpt(text, q, ignore={"itc"}).startswith("1. Segment Revenue: a) FMCG - Cigarettes 15383.55")

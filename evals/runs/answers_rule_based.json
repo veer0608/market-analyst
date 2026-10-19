@@ -171,7 +171,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "From HDFC Bank's Q1 FY27 filing:\n- 30, 2025. Net interest margin was at 3.26% on total assets, and 3.40% based on interest earning assets. [HDFC Bank, p.1]\n- Regd. Office: HDFC Bank Limited, HDFC Bank House, Senapati Bapat Marg, Lower Parel (West), Mumbai - 400 013 [HDFC Bank, p.1]\n- NEWS RELEASE HDFC BANK LIMITED, Sandoz House, Shivsagar Estate, [HDFC Bank, p.4]"
+      "answer": "From HDFC Bank's Q1 FY27 filing:\n- 30, 2025. Net interest margin was at 3.26% on total assets, and 3.40% based on interest earning assets. [HDFC Bank, p.1]\n- ratio for the quarter was at 39.2%. Regd. Office: HDFC Bank Limited, HDFC Bank House, Senapati Bapat Marg, Lower Parel (West), Mumbai - 400 013 [HDFC Bank, p.1]\n- NEWS RELEASE HDFC BANK LIMITED, Sandoz House, Shivsagar Estate, Dr. Annie Besant Road, Worli, Mumbai - 400 018. CIN: L65920MH1994PLC080618 total loan book was ₹ 1,218 billion as on June 30, 2026. Stage 3 loans were at ... [HDFC Bank, p.4]"
     },
     {
       "id": "a10",
@@ -188,7 +188,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "From Infosys's Q1 FY27 filing:\n- Statement of comprehensive income: Revenues 5,082 4,941 2.8% Cost of sales 3,482 3,416 1.9% [Infosys, p.4]\n- Statement of comprehensive income: Revenues 48,211 42,279 14.0% Cost of Sales 33,033 29,224 13.0% [Infosys, p.3]\n- Per share: Market capitalization / revenue, end of the period (2) 2.2 4.0 2.8 Note: The above ratio calculations are based on consolidated IFRS INR financial statements. [Infosys, p.1]"
+      "answer": "From Infosys's Q1 FY27 filing:\n- Revenues 5,082 4,941 2.8% Cost of sales 3,482 3,416 1.9% [Infosys, p.4]\n- Revenues 48,211 42,279 14.0% Cost of Sales 33,033 29,224 13.0% [Infosys, p.3]\n- Market capitalization / revenue, end of the period (2) 2.2 4.0 2.8 Note: The above ratio calculations are based on consolidated IFRS INR financial statements. [Infosys, p.1]"
     },
     {
       "id": "a11",
@@ -222,7 +222,7 @@
         "citations": true
       },
       "passed": false,
-      "answer": "From Reliance Industries's Q1 FY27 filing:\n- 2. Total Non-Convertible Debentures of the Company outstanding (before netting off prepaid: finance charges and Fair Valuation Impact) as on June 30, 2026 are ₹ 27,389 crore out of which, Secured Non-Convertible ... [Reliance Industries, p.29]\n- • Capital Expenditure for the quarter ended 30th June 2026, stood at ₹ 38,682 crore ($ 4.1 billion). The Company continued to make significant progress on projects in O2C and New Energy business. The [Reliance Industries, p.2]\n- 3. Other Income for the quarter ended June 30, 2025 and year ended March 31, 2026 includes ₹ 8,924 crore, being proceeds of profit from sale of listed investments. [Reliance Industries, p.29]"
+      "answer": "From Reliance Industries's Q1 FY27 filing:\n- h) Total debts to total assets 0.19 0.20 0.20 0.20 i) Debtors turnover $ 36.61 41.22 33.00 33.93 [Reliance Industries, p.29]\n- • Capital Expenditure for the quarter ended 30th June 2026, stood at ₹ 38,682 crore ($ 4.1 billion). The Company continued to make significant progress on projects in O2C and New Energy business. The [Reliance Industries, p.2]\n- 3. Other Income for the quarter ended June 30, 2025 and year ended March 31, 2026 includes ₹ 8,924 crore, being proceeds of profit from sale of listed investments. [Reliance Industries, p.29]"
     },
     {
       "id": "a13",
@@ -239,7 +239,7 @@
         "citations": true
       },
       "passed": false,
-      "answer": "From TCS's Q1 FY27 filing:\n- Consolidated Statement of Profit and Loss: For the Quarter ended June 30, 2025, March 31, 2026, and June 30, 2026 (In ₹ crore, except per share data) [TCS, p.10]\n- MUMBAI, July 9, 2026: Tata Consultancy Services (BSE: 532540, NSE: TCS) reported its consolidated financial results according to Ind AS and IFRS, for the quarter ending June 30, 2026. [TCS, p.1]\n- Partner Speak: partnership deepens our commitment to India, our second-largest market, with TCS bringing Claude to enterprises and professionals across the region and globally, including 50,000 of its employees.” [TCS, p.7]"
+      "answer": "From TCS's Q1 FY27 filing:\n- For the Quarter ended June 30, 2025, March 31, 2026, and June 30, 2026 (In ₹ crore, except per share data) [TCS, p.10]\n- results according to Ind AS and IFRS, for the quarter ending June 30, 2026. Highlights of the Quarter Ended June 30, 2026 [TCS, p.1]\n- enterprises and professionals across the region and globally, including 50,000 of its employees.” Dario Amodei, Co-founder and CEO, Anthropic [TCS, p.7]"
     },
     {
       "id": "a14",
@@ -256,7 +256,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "From Reliance Industries's Q1 FY27 filing:\n- C. STRATEGIC PROGRESS: • Jio Platforms surged into the global top 20 in the latest Patent Co-operation Treaty (PCT) rankings released by the World Intellectual Property Organisation (WIPO). Jio climbed 320 places on the ... [Reliance Industries, p.6]\n- D. LEADERSHIP QUOTE: Mr. Akash M Ambani, Managing Director of Jio Platforms Limited, said, “Jio has established itself as a deep tech company and demonstrated the velocity of innovation across multiple advanced [Reliance Industries, p.6]\n- Media Release: Jio total subscriber base of over 533 million with 285 million Jio True5G subscribers JPL emerged as one of the fastest rising innovators globally as per PCT Rankings of WIPO [Reliance Industries, p.1]"
+      "answer": "From Reliance Industries's Q1 FY27 filing:\n- Media Release C. STRATEGIC PROGRESS • Jio Platforms surged into the global top 20 in the latest Patent Co-operation Treaty (PCT) rankings released by the World Intellectual Property Organisation (WIPO). Jio climbed 320 ... [Reliance Industries, p.6]\n- • Total Fixed Broadband subscribers as of June 2026 stood at 28.6 million with ~8.6 million additions over the last 12 months, giving Jio a market share of over 43%. Jio Air Fiber with total base of over ~14 [Reliance Industries, p.6]\n- Jio total subscriber base of over 533 million with 285 million Jio True5G subscribers JPL emerged as one of the fastest rising innovators globally as per PCT Rankings of WIPO [Reliance Industries, p.1]"
     },
     {
       "id": "a15",
@@ -273,7 +273,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "From HDFC Bank's Q1 FY27 filing:\n- ASSET QUALITY: Gross non-performing assets were at 1.17% of gross advances as on June 30, 2026 (0.91% excluding NPAs in the agricultural segment), as against 1.15% as on March 31, [HDFC Bank, p.3]\n- The total credit cost ratio was at 0.40% for the quarter ended June 30, 2026. Profit before tax (PBT) for the quarter ended June 30, 2026 was at ₹ 251.1 billion. Profit [HDFC Bank, p.2]\n- KEY SUBSIDIARIES: Amongst the Bank’s key subsidiaries, HDFC Life Insurance Company Ltd and HDFC ERGO General Insurance Company Ltd prepare their financial results in accordance with [HDFC Bank, p.3]"
+      "answer": "From HDFC Bank's Q1 FY27 filing:\n- ASSET QUALITY: Gross non-performing assets were at 1.17% of gross advances as on June 30, 2026 (0.91% excluding NPAs in the agricultural segment), as against 1.15% as on March 31, [HDFC Bank, p.3]\n- The total credit cost ratio was at 0.40% for the quarter ended June 30, 2026. Profit before tax (PBT) for the quarter ended June 30, 2026 was at ₹ 251.1 billion. Profit [HDFC Bank, p.2]\n- 2026 (0.91% excluding NPAs in the agricultural segment), and 1.40% as on June 30, 2025 (1.14% excluding NPAs in the agricultural segment). Net non-performing assets [HDFC Bank, p.3]"
     },
     {
       "id": "a16",
@@ -311,7 +311,7 @@
         "citations": true
       },
       "passed": false,
-      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days.\nFrom HDFC Bank's Q1 FY27 filing:\n- CONSOLIDATED FINANCIAL RESULTS AS PER INDIAN GAAP:: The Bank’s consolidated net revenue was ₹ 854.8 billion for the quarter ended June 30, 2026. The consolidated profit after tax for the quarter ended June 30, 2026 was ... [HDFC Bank, p.4]\n- KEY SUBSIDIARIES: Amongst the Bank’s key subsidiaries, HDFC Life Insurance Company Ltd and HDFC ERGO General Insurance Company Ltd prepare their financial results in accordance with [HDFC Bank, p.3]\n- Regd. Office: HDFC Bank Limited, HDFC Bank House, Senapati Bapat Marg, Lower Parel (West), Mumbai - 400 013 [HDFC Bank, p.3]\nThe filing reports results; it does not say why the share price moved."
+      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days.\nFrom HDFC Bank's Q1 FY27 filing:\n- leading broking firms. For the quarter ended June 30, 2026, HSL’s total revenue was ₹ 9.5 billion. Profit after tax for the quarter ended June 30, 2026 was ₹ 3.0 billion, as against [HDFC Bank, p.4]\n- (0.91% excluding NPAs in the agricultural segment), as against 1.15% as on March 31, 2026 (0.91% excluding NPAs in the agricultural segment), and 1.40% as on June 30, 2025 (1.14% excluding NPAs in the agricultural ... [HDFC Bank, p.3]\n- holds a 74.1% stake. For the quarter ended June 30, 2026, HDBFSL’s net revenue was at ₹ 31.8 billion. Profit after tax for the quarter ended June 30, 2026 was ₹ 7.9 billion [HDFC Bank, p.3]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a18",
@@ -332,7 +332,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.\nFrom TCS's Q1 FY27 filing:\n- MUMBAI, July 9, 2026: Tata Consultancy Services (BSE: 532540, NSE: TCS) reported its consolidated financial results according to Ind AS and IFRS, for the quarter ending June 30, 2026. [TCS, p.1]\n- Ind-AS & IFRS ₹: TCS begins FY27 with continued growth; wins multiple AI transformation deals - Q1 Revenue at ₹72,275 crore; Growth +2.2% QoQ, +13.9% YoY in INR, +0.4% QoQ in CC [TCS, p.1]\n- Growth Growth: Q1 FY26 Q4 FY26 Q1 FY27 (%) (%) Americas [TCS, p.3]\nThe filing reports results; it does not say why the share price moved."
+      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.\nFrom TCS's Q1 FY27 filing:\n- Highlights of the Quarter Ended June 30, 2026 • Revenue at ₹72,275 crore, +2.2% QoQ, +13.9% YoY [TCS, p.1]\n- - Q1 Revenue at ₹72,275 crore; Growth +2.2% QoQ, +13.9% YoY in INR, +0.4% QoQ in CC - Annualized AI Revenue at US$ 2.6 billion in Q1FY27, up 13.6% QoQ [TCS, p.1]\n- Growth by Markets Q-o-Q Y-o-Y [TCS, p.3]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a19",
@@ -353,7 +353,7 @@
         "citations": true
       },
       "passed": false,
-      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days.\nFrom Reliance Industries's Q1 FY27 filing:\n- Jio Star: o-Y led by strong growth in subscription revenue and Digital Entertainment Ad revenue. EBITDA from [Reliance Industries, p.18]\n- 2 Revenue from Operations 79,745 87,344 73,720 8.2 327,143 3 EBITDA from Operations 5,935 6,690 6,044 (1.8) 26,128 [Reliance Industries, p.7]\n- Profit/(Loss) of Associates & JVs: * EBITDA Margin is calculated on Revenue from Operations Registered Office: Corporate Communications: Telephone : (+91 22) 3555 5000 [Reliance Industries, p.4]\nThe filing reports results; it does not say why the share price moved."
+      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days.\nFrom Reliance Industries's Q1 FY27 filing:\n- B. OPERATIONAL UPDATE: o-Y led by strong growth in subscription revenue and Digital Entertainment Ad revenue. EBITDA from [Reliance Industries, p.18]\n- 2 Revenue from Operations 79,745 87,344 73,720 8.2 327,143 3 EBITDA from Operations 5,935 6,690 6,044 (1.8) 26,128 [Reliance Industries, p.7]\n- * EBITDA Margin is calculated on Revenue from Operations Registered Office: Corporate Communications: Telephone : (+91 22) 3555 5000 [Reliance Industries, p.4]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a20",
@@ -374,7 +374,7 @@
         "citations": true
       },
       "passed": false,
-      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days.\nFrom Infosys's Q1 FY27 filing:\n- Profit before tax (PBT) / revenue 22.9% 23.0% 22.4% Tax / revenue 6.7% 6.7% 5.9% [Infosys, p.1]\n- Statement of comprehensive income: Particulars Three months ended June 30, Growth% Q1 27 over Q1 26 [Infosys, p.4]\n- Financial performance (%): Gross profit / revenue 31.5% 30.9% 30.2% Selling and marketing expenses / revenue 5.3% 5.2% 5.1% [Infosys, p.1]\nThe filing reports results; it does not say why the share price moved."
+      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days.\nFrom Infosys's Q1 FY27 filing:\n- Profit before tax (PBT) / revenue 22.9% 23.0% 22.4% Tax / revenue 6.7% 6.7% 5.9% [Infosys, p.1]\n- Operating expenses:: Operating profit 1,072 1,028 4.3% Other income, net (1) 91 110 -17.3% [Infosys, p.4]\n- Gross profit / revenue 31.5% 30.9% 30.2% Selling and marketing expenses / revenue 5.3% 5.2% 5.1% [Infosys, p.1]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a21",

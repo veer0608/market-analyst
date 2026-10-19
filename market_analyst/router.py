@@ -209,7 +209,9 @@ def compose(a: Answer) -> str:
             parts.append(f"{r.company.name}'s Q1 FY27 filing has nothing that matches this question.")
         else:
             parts.append(f"From {r.company.name}'s Q1 FY27 filing:")
-            parts += [f"- {_excerpt(p.text, r.filing_query)} {p.citation()}" for p in a.passages]
+            name_words = set(re.findall(r"[a-z]{3,}", " ".join((r.company.name, *r.company.aliases)).lower()))
+            parts += [f"- {_excerpt(p.text, r.filing_query, ignore=name_words)} {p.citation()}"
+                      for p in a.passages]
     if "price" in r.tools and "filings" in r.tools:
         parts.append("The filing reports results; it does not say why the share price moved.")
     return "\n".join(parts)
@@ -226,26 +228,50 @@ def _premise_check(question: str, price: PriceResult) -> str | None:
     return None
 
 
-# A section heading inside a passage: "1. Segment Revenue", "3. Segment Assets",
-# "Balance sheet data". Numbered, or short with no figures and no closing stop.
-_NUMBERED_HEADING = re.compile(r"^(?:\d{1,2}\.|[ivx]{1,4}\.|[A-Z]\.)\s+[A-Za-z][A-Za-z ,&'/()-]*$")
+# A section heading inside a passage, one of:
+#   numbered and short     "1. Segment Revenue", "A. FINANCIAL RESULTS"
+#   ALL CAPS and short     "ASSET QUALITY", "KEY SUBSIDIARIES"
+#   a short label ending ":"  "Capital Adequacy:", "Net Profit attributable to:"
+# An earlier rule also took any short capitalised line without figures. Across the
+# corpus that matched more fragments than headings: the wrapped second half of a
+# table label ("J Vs", "Ventures"), column headers ("Quarter Ended", "CC CC"),
+# people's names. A wrong label misleads; a missing one only loses context.
+_NUMBER_PREFIX = re.compile(r"^(?:\d{1,2}|[A-Z])\.\s+")
+_MAX_HEADING_WORDS = 6
 
 
 def _is_heading(line: str) -> bool:
-    if _NUMBERED_HEADING.match(line):
-        return True
-    return (len(line) <= 60 and not re.search(r"\d", line) and line[:1].isupper()
-            and not line.endswith((".", ",", ";")))
+    body = _NUMBER_PREFIX.sub("", line)
+    numbered = body != line
+    core = body.rstrip(": ")
+    words = core.split()
+    if not words or len(words) > _MAX_HEADING_WORDS or re.search(r"\d", body):
+        return False
+    if ":" in core:  # "NSE: HDFCBANK" is a key and a value
+        return False
+    if not any(sum(ch.isalpha() for ch in w) >= 3 for w in words):  # "CC CC", "J Vs", "TV.", "###"
+        return False
+    if body.endswith(","):  # a running page header, "NEWS RELEASE HDFC BANK LIMITED,"
+        return False
+    letters = [ch for ch in core if ch.isalpha()]
+    all_caps = all(ch.isupper() for ch in letters)
+    labelled = body.endswith(":") and "," not in body
+    return numbered or all_caps or labelled
 
 
-def _excerpt(text: str, query: str | None = None, limit: int = 220) -> str:
+def _excerpt(text: str, query: str | None = None, limit: int = 220, ignore: set[str] = frozenset()) -> str:
     """The lines of a passage that best match the query, shown under their table
     heading. A row is scored together with the heading above it, so for "cigarettes
     segment revenue" the Cigarettes row under "1. Segment Revenue" beats the one
     under "3. Segment Assets", and the heading is shown with it so the reader can
-    tell which table a figure is from. Falls back to the start of the passage."""
+    tell which table a figure is from. Falls back to the start of the passage.
+
+    `ignore` drops words from the query: the company's own name, which every
+    passage of its filing shares, so it says nothing about which line answers.
+    Matched against "ITC LIMITED" it once lifted a page title to a tie with the
+    cigarettes revenue row."""
     lines = [" ".join(line.split()) for line in text.splitlines() if line.strip()]
-    words = {w for w in re.findall(r"[a-z]{3,}", (query or "").lower()) if w not in _STOP}
+    words = {w for w in re.findall(r"[a-z]{3,}", (query or "").lower()) if w not in _STOP and w not in ignore}
     if words and lines:
         heads: list[str | None] = []
         current = None
