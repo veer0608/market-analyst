@@ -38,6 +38,30 @@ baseline a model-based router will have to beat.
 - Filing excerpts show the lines that match the question, so a table row such as
   "Excise duty 10035.63" is shown rather than the passage's first line.
 
+### Router eval
+
+`evals/router_set.json` has 30 questions labelled with what an ideal router should do:
+which tools, for which company, or a refusal. Only the routing decision is scored, so
+a run needs the price warehouse but no filings index and no API key.
+
+```bash
+python -m market_analyst.router_eval --out evals/runs/rule_based.json
+```
+
+| Router | Correct | price | filings | both | refuse | multi | over-refused | under-refused |
+|---|---|---|---|---|---|---|---|---|
+| rule-based | **26/30 (0.867)** | 8/8 | 7/8 | 5/7 | 6/6 | 0/1 | 3 | 0 |
+
+It never answered a question it should have refused. It refused three it should have
+answered: "How many people does TCS employ?" ("employ" is not a filing word), "Did
+Reliance's results justify its share price move?" (no dates and no "after results"),
+and "Compare TCS and Infosys operating margins" (one company per question). It also
+treated "What drove the Reliance share price after its Q1 results?" as price only.
+
+The same person wrote the router and the questions, so this is not an independent test
+and the number is likely optimistic. The rules were not tuned to these misses; they are
+the bar a model-based router has to clear on the same set.
+
 ## Price tool
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what

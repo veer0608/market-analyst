@@ -1,0 +1,38 @@
+{
+  "_note": "Router tool-choice set. Labels say what an ideal router should do, written before any router was scored against them; do not edit labels to match a router's output. expected_tools is [] for a refusal. expected_companies are NSE symbols. q27 asks about two companies, which the current Route cannot express; its label is still the ideal.",
+  "questions": [
+    {"id": "q01", "category": "price", "question": "How did Infosys stock do in the week after its earnings?", "expected_tools": ["price"], "expected_companies": ["INFY"]},
+    {"id": "q02", "category": "price", "question": "What was the closing price of Reliance on 2026-07-17?", "expected_tools": ["price"], "expected_companies": ["RELIANCE"]},
+    {"id": "q03", "category": "price", "question": "Did HDFC Bank's share price go up or down after it announced results?", "expected_tools": ["price"], "expected_companies": ["HDFCBANK"]},
+    {"id": "q04", "category": "price", "question": "ITC's highest price between 2026-07-01 and 2026-07-31", "expected_tools": ["price"], "expected_companies": ["ITC"]},
+    {"id": "q05", "category": "price", "question": "Average traded volume for TCS from 2026-08-01 to 2026-08-14", "expected_tools": ["price"], "expected_companies": ["TCS"]},
+    {"id": "q06", "category": "price", "question": "What return did GOODLUCK give between 2026-08-01 and 2026-08-31?", "expected_tools": ["price"], "expected_companies": ["GOODLUCK"]},
+    {"id": "q07", "category": "price", "question": "How much did TCS shares move in the five days after Q1 results?", "expected_tools": ["price"], "expected_companies": ["TCS"]},
+    {"id": "q08", "category": "price", "question": "Reliance stock performance from 2026-09-01 to 2026-09-30", "expected_tools": ["price"], "expected_companies": ["RELIANCE"]},
+
+    {"id": "q09", "category": "filings", "question": "What did HDFC Bank say about bad loans?", "expected_tools": ["filings"], "expected_companies": ["HDFCBANK"]},
+    {"id": "q10", "category": "filings", "question": "What was Infosys's revenue in Q1 FY27?", "expected_tools": ["filings"], "expected_companies": ["INFY"]},
+    {"id": "q11", "category": "filings", "question": "How many people does TCS employ?", "expected_tools": ["filings"], "expected_companies": ["TCS"]},
+    {"id": "q12", "category": "filings", "question": "What dividend did TCS declare?", "expected_tools": ["filings"], "expected_companies": ["TCS"]},
+    {"id": "q13", "category": "filings", "question": "How much did Reliance spend on capex this quarter?", "expected_tools": ["filings"], "expected_companies": ["RELIANCE"]},
+    {"id": "q14", "category": "filings", "question": "What is ITC's cigarette segment revenue?", "expected_tools": ["filings"], "expected_companies": ["ITC"]},
+    {"id": "q15", "category": "filings", "question": "What were HDFC Bank's total deposits at the end of June?", "expected_tools": ["filings"], "expected_companies": ["HDFCBANK"]},
+    {"id": "q16", "category": "filings", "question": "How big is Jio's subscriber base?", "expected_tools": ["filings"], "expected_companies": ["RELIANCE"]},
+
+    {"id": "q17", "category": "both", "question": "Why did HDFC Bank shares fall after results?", "expected_tools": ["price", "filings"], "expected_companies": ["HDFCBANK"]},
+    {"id": "q18", "category": "both", "question": "Infosys stock moved after earnings; what did its results say about margins?", "expected_tools": ["price", "filings"], "expected_companies": ["INFY"]},
+    {"id": "q19", "category": "both", "question": "ITC fell after results. Was excise duty the reason?", "expected_tools": ["price", "filings"], "expected_companies": ["ITC"]},
+    {"id": "q20", "category": "both", "question": "What drove the Reliance share price after its Q1 results?", "expected_tools": ["price", "filings"], "expected_companies": ["RELIANCE"]},
+    {"id": "q21", "category": "both", "question": "Explain TCS's stock reaction to its Q1 numbers", "expected_tools": ["price", "filings"], "expected_companies": ["TCS"]},
+    {"id": "q22", "category": "both", "question": "How did the market react to HDFC Bank's profit growth?", "expected_tools": ["price", "filings"], "expected_companies": ["HDFCBANK"]},
+    {"id": "q23", "category": "both", "question": "Did Reliance's results justify its share price move?", "expected_tools": ["price", "filings"], "expected_companies": ["RELIANCE"]},
+
+    {"id": "q24", "category": "refuse", "question": "Should I buy ITC now?", "expected_tools": [], "expected_companies": []},
+    {"id": "q25", "category": "refuse", "question": "Is Infosys a good investment?", "expected_tools": [], "expected_companies": []},
+    {"id": "q26", "category": "refuse", "question": "What did Wipro report for Q1?", "expected_tools": [], "expected_companies": []},
+    {"id": "q27", "category": "multi", "question": "Compare TCS and Infosys operating margins", "expected_tools": ["filings"], "expected_companies": ["TCS", "INFY"]},
+    {"id": "q28", "category": "refuse", "question": "What will TCS's share price be next month?", "expected_tools": [], "expected_companies": []},
+    {"id": "q29", "category": "refuse", "question": "Tell me about the stock market today", "expected_tools": [], "expected_companies": []},
+    {"id": "q30", "category": "refuse", "question": "Give me a price target for HDFC Bank", "expected_tools": [], "expected_companies": []}
+  ]
+}
