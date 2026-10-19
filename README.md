@@ -85,7 +85,38 @@ question in `evals/cache/`, so a run can be re-scored without spending quota, an
 stopped by the daily limit resumes where it stopped. Models are pinned ids, never a
 `-latest` alias, and kept off the ones another project on this machine runs daily.
 
-## Price tool
+### Answer eval
+
+`evals/answer_set.json` has 23 questions run end to end: route, run both tools, compose
+the answer, then check it. Price expectations were computed from raw closes in
+`fct_daily_prices`, not through `price_query`, so a bug there cannot hide by agreeing
+with itself. Filing facts are the ones verified for citerag's NSE golden set.
+
+```bash
+python -m market_analyst.answer_eval --out evals/runs/answers_rule_based.json
+```
+
+Rule-based router: **16/23 answers pass every check.**
+
+| Check | Result | What it asks |
+|---|---|---|
+| price window | 12/12 | the expected dates were used |
+| price value | 12/12 | the number matches raw closes, to 0.01 |
+| price shown | 12/12 | that number is in the answer |
+| retrieved | 8/12 | a returned passage holds the filing fact |
+| shown | **5/12** | the fact is visible in the answer, not only retrieved |
+| citations | 12/12 | every citation is the right company |
+| refusal | 23/23 | refused exactly the three it should |
+
+Prices are right everywhere, including GOODLUCK's August return across its 2:1 bonus.
+The weak step is the last one: three answers retrieved the fact and then did not show
+it, because the excerpt picks lines by shared words. "Employees" never matches
+"Workforce strength: 593,798"; "NPA" never matches "non-performing assets"; and for
+ITC's cigarettes revenue it picked the cigarettes row from **Segment Assets**, since a
+line scored alone has lost its table heading. Four more were not retrieved: Reliance's
+net debt (a known citerag miss), and three "why did it move" questions, where the
+fixed headline search text did not reach the headline numbers.
+
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what
 is actually in the warehouse, and run in DuckDB. An unknown symbol, a date outside the

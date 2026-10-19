@@ -174,10 +174,11 @@ def _price_query_for(question: str, company: Company, vocab: Vocabulary,
 
 
 def run(question: str, vocab: Vocabulary, con: duckdb.DuckDBPyConnection, *,
-        search=None, top_k: int = 3) -> Answer:
-    """Route, run the tools, compose. `search` defaults to filings.search; tests
-    pass a stand-in so they need no index."""
-    r = route(question, vocab, con)
+        search=None, top_k: int = 3, router=None) -> Answer:
+    """Route, run the tools, compose. `router` defaults to the rule-based route();
+    `search` defaults to filings.search, and tests pass a stand-in so they need no
+    index."""
+    r = (router or route)(question, vocab, con)
     answer = Answer(question, r)
     if r.refused:
         answer.price = refusal(r.refused)

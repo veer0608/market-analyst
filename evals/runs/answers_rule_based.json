@@ -1,0 +1,416 @@
+{
+  "router": "rule_based",
+  "summary": {
+    "n": 23,
+    "passed": 16,
+    "by_category": {
+      "both": "1/4",
+      "filings": "4/8",
+      "price": "8/8",
+      "refuse": "3/3"
+    },
+    "by_check": {
+      "price_window": "12/12",
+      "price_value": "12/12",
+      "price_shown": "12/12",
+      "retrieved": "8/12",
+      "shown": "5/12",
+      "citations": "12/12",
+      "refusal": "23/23"
+    }
+  },
+  "questions": [
+    {
+      "id": "a01",
+      "category": "price",
+      "question": "How did TCS shares move after its Q1 results?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days."
+    },
+    {
+      "id": "a02",
+      "category": "price",
+      "question": "How did HDFC Bank shares react to results?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days."
+    },
+    {
+      "id": "a03",
+      "category": "price",
+      "question": "What was Infosys's share price return after its earnings?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days."
+    },
+    {
+      "id": "a04",
+      "category": "price",
+      "question": "How did ITC stock do after its results?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "ITC (NSE) returned 0.30% from the close of 2026-07-30 to the close of 2026-08-06, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-30 (before results on 2026-07-31) to close on 2026-08-06, 5 trading days."
+    },
+    {
+      "id": "a05",
+      "category": "price",
+      "question": "How did Reliance shares move after its Q1 results?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days."
+    },
+    {
+      "id": "a06",
+      "category": "price",
+      "question": "What was the closing price of Reliance on 2026-07-17?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "RELIANCE (NSE) closed at 1327.20 on 2026-07-17."
+    },
+    {
+      "id": "a07",
+      "category": "price",
+      "question": "What was TCS's highest price between 2026-08-01 and 2026-08-31?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "TCS (NSE) high between 2026-08-01 and 2026-08-31 (21 trading days) was 2473.70."
+    },
+    {
+      "id": "a08",
+      "category": "price",
+      "question": "What return did GOODLUCK give from 2026-07-31 to 2026-08-31?",
+      "tools": [
+        "price"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true
+      },
+      "passed": true,
+      "answer": "GOODLUCK (NSE) returned -8.19% from the close of 2026-07-31 to the close of 2026-08-31, adjusted for splits and bonuses (21 trading days)."
+    },
+    {
+      "id": "a09",
+      "category": "filings",
+      "question": "What was HDFC Bank's net interest margin this quarter?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": true,
+        "citations": true
+      },
+      "passed": true,
+      "answer": "From HDFC Bank's Q1 FY27 filing:\n- 30, 2025. Net interest margin was at 3.26% on total assets, and 3.40% based on interest earning assets. [HDFC Bank, p.1]\n- Regd. Office: HDFC Bank Limited, HDFC Bank House, Senapati Bapat Marg, Lower Parel (West), Mumbai - 400 013 [HDFC Bank, p.1]\n- NEWS RELEASE HDFC BANK LIMITED, Sandoz House, Shivsagar Estate, [HDFC Bank, p.4]"
+    },
+    {
+      "id": "a10",
+      "category": "filings",
+      "question": "What revenue did Infosys report for Q1 FY27?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": true,
+        "citations": true
+      },
+      "passed": true,
+      "answer": "From Infosys's Q1 FY27 filing:\n- Revenues 5,082 4,941 2.8% Cost of sales 3,482 3,416 1.9% [Infosys, p.4]\n- Revenues 48,211 42,279 14.0% Cost of Sales 33,033 29,224 13.0% [Infosys, p.3]\n- Market capitalization / revenue, end of the period (2) 2.2 4.0 2.8 Note: The above ratio calculations are based on consolidated IFRS INR financial statements. [Infosys, p.1]"
+    },
+    {
+      "id": "a11",
+      "category": "filings",
+      "question": "How much excise duty did ITC pay in the quarter?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": true,
+        "citations": true
+      },
+      "passed": true,
+      "answer": "From ITC's Q1 FY27 filing:\n- d) Excise duty 10035.63 1309.07 5644.20 9656.33 e) Employee benefits expense 978.63 916.69 922.02 3629.28 [ITC, p.1]\n- 5. Consequenttoexpiryofthe GST Compensation Cess,the Governmentof Indiaincreased GS Tand Central Excisedutyoncigaretteswitheffectfrom1st February,2026.Inaccordancewith Ind AS115-Revenuefrom Contractswith Customersand ... [ITC, p.1]\n- d) Others 52.96 41.95 49.32 49.32 Total 16240.62 11865.88 11775.57 11775.57 Unallocated Corporate Liabilities 5535.63 5630.40 7211.68 7211.68 Total Liabilities 21776.25 17496.28 18987.25 18987.25 #The figures for the ... [ITC, p.2]"
+    },
+    {
+      "id": "a12",
+      "category": "filings",
+      "question": "What was Reliance's net debt at the end of June 2026?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": false,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "From Reliance Industries's Q1 FY27 filing:\n- h) Total debts to total assets 0.19 0.20 0.20 0.20 i) Debtors turnover $ 36.61 41.22 33.00 33.93 [Reliance Industries, p.29]\n- • Capital Expenditure for the quarter ended 30th June 2026, stood at ₹ 38,682 crore ($ 4.1 billion). The Company continued to make significant progress on projects in O2C and New Energy business. The [Reliance Industries, p.2]\n- 3. Other Income for the quarter ended June 30, 2025 and year ended March 31, 2026 includes ₹ 8,924 crore, being proceeds of profit from sale of listed investments. [Reliance Industries, p.29]"
+    },
+    {
+      "id": "a13",
+      "category": "filings",
+      "question": "How many employees did TCS have at the end of the quarter?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "From TCS's Q1 FY27 filing:\n- For the Quarter ended June 30, 2025, March 31, 2026, and June 30, 2026 (In ₹ crore, except per share data) [TCS, p.10]\n- MUMBAI, July 9, 2026: Tata Consultancy Services (BSE: 532540, NSE: TCS) reported its consolidated financial results according to Ind AS and IFRS, for the quarter ending June 30, 2026. [TCS, p.1]\n- ASX is very proud of the outcomes achieved with TCS as our technology partner having deployed a modern, secure, resilient and scalable solution for the Australian market. Leveraging the expertise of TCS and their [TCS, p.7]"
+    },
+    {
+      "id": "a14",
+      "category": "filings",
+      "question": "How many subscribers does Jio have?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": true,
+        "citations": true
+      },
+      "passed": true,
+      "answer": "From Reliance Industries's Q1 FY27 filing:\n- • Jio Platforms surged into the global top 20 in the latest Patent Co-operation Treaty (PCT) rankings released by the World Intellectual Property Organisation (WIPO). Jio climbed 320 places on the list for [Reliance Industries, p.6]\n- • Total Fixed Broadband subscribers as of June 2026 stood at 28.6 million with ~8.6 million additions over the last 12 months, giving Jio a market share of over 43%. Jio Air Fiber with total base of over ~14 [Reliance Industries, p.6]\n- Jio total subscriber base of over 533 million with 285 million Jio True5G subscribers JPL emerged as one of the fastest rising innovators globally as per PCT Rankings of WIPO [Reliance Industries, p.1]"
+    },
+    {
+      "id": "a15",
+      "category": "filings",
+      "question": "What was HDFC Bank's gross NPA ratio at the end of June?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "From HDFC Bank's Q1 FY27 filing:\n- As of June 30, 2026, the Bank’s distribution network was at 9,694 branches and 20,958 AT Ms across 4,175 cities / towns as against 9,499 branches and 21,251 ATMs across [HDFC Bank, p.3]\n- The total credit cost ratio was at 0.40% for the quarter ended June 30, 2026. Profit before tax (PBT) for the quarter ended June 30, 2026 was at ₹ 251.1 billion. Profit [HDFC Bank, p.2]\n- 2026 (0.91% excluding NPAs in the agricultural segment), and 1.40% as on June 30, 2025 (1.14% excluding NPAs in the agricultural segment). Net non-performing assets [HDFC Bank, p.3]"
+    },
+    {
+      "id": "a16",
+      "category": "filings",
+      "question": "What was ITC's cigarettes segment revenue this quarter?",
+      "tools": [
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "retrieved": true,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "From ITC's Q1 FY27 filing:\n- Less : Inter-segment revenue 5557.22 5254.90 1311.34 9845.71 Gross Revenue from sale of products and services 26794.47 20921.78 21463.36 80867.49 [ITC, p.2]\n- 3. Segment Assets a) FMCG - Cigarettes 13204.05 10071.82 13283.91 13283.91 [ITC, p.2]\n- Segment-wise Revenue, Results, Assets and Liabilities for the Quarter ended 30th June, 2026 [ITC, p.2]"
+    },
+    {
+      "id": "a17",
+      "category": "both",
+      "question": "Why did HDFC Bank shares fall after results?",
+      "tools": [
+        "price",
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true,
+        "retrieved": false,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days.\nFrom HDFC Bank's Q1 FY27 filing:\n- HDFC Securities Ltd (HSL), in which the Bank holds a 94.0% stake, is amongst the leading broking firms. For the quarter ended June 30, 2026, HSL’s total revenue was ₹ [HDFC Bank, p.4]\n- Amongst the Bank’s key subsidiaries, HDFC Life Insurance Company Ltd and HDFC ERGO General Insurance Company Ltd prepare their financial results in accordance with [HDFC Bank, p.3]\n- Regd. Office: HDFC Bank Limited, HDFC Bank House, Senapati Bapat Marg, Lower Parel (West), Mumbai - 400 013 [HDFC Bank, p.3]\nThe filing reports results; it does not say why the share price moved."
+    },
+    {
+      "id": "a18",
+      "category": "both",
+      "question": "Why did TCS shares rise after its Q1 results?",
+      "tools": [
+        "price",
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true,
+        "retrieved": true,
+        "shown": true,
+        "citations": true
+      },
+      "passed": true,
+      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.\nFrom TCS's Q1 FY27 filing:\n- MUMBAI, July 9, 2026: Tata Consultancy Services (BSE: 532540, NSE: TCS) reported its consolidated financial results according to Ind AS and IFRS, for the quarter ending June 30, 2026. [TCS, p.1]\n- TCS begins FY27 with continued growth; wins multiple AI transformation deals - Q1 Revenue at ₹72,275 crore; Growth +2.2% QoQ, +13.9% YoY in INR, +0.4% QoQ in CC [TCS, p.1]\n- Growth by Markets Q-o-Q Y-o-Y [TCS, p.3]\nThe filing reports results; it does not say why the share price moved."
+    },
+    {
+      "id": "a19",
+      "category": "both",
+      "question": "Why did Reliance stock fall after its results?",
+      "tools": [
+        "price",
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true,
+        "retrieved": false,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days.\nFrom Reliance Industries's Q1 FY27 filing:\n- * EBITDA Margin is calculated on Revenue from Operations B. OPERATIONAL UPDATE [Reliance Industries, p.18]\n- 2 Revenue from Operations 79,745 87,344 73,720 8.2 327,143 3 EBITDA from Operations 5,935 6,690 6,044 (1.8) 26,128 [Reliance Industries, p.7]\n- * EBITDA Margin is calculated on Revenue from Operations Registered Office: Corporate Communications: Telephone : (+91 22) 3555 5000 [Reliance Industries, p.4]\nThe filing reports results; it does not say why the share price moved."
+    },
+    {
+      "id": "a20",
+      "category": "both",
+      "question": "Why did Infosys shares jump after earnings?",
+      "tools": [
+        "price",
+        "filings"
+      ],
+      "refused": null,
+      "checks": {
+        "refusal": true,
+        "price_window": true,
+        "price_value": true,
+        "price_shown": true,
+        "retrieved": false,
+        "shown": false,
+        "citations": true
+      },
+      "passed": false,
+      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days.\nFrom Infosys's Q1 FY27 filing:\n- Profit before tax (PBT) / revenue 22.9% 23.0% 22.4% Tax / revenue 6.7% 6.7% 5.9% [Infosys, p.1]\n- Particulars Three months ended June 30, Growth% Q1 27 over Q1 26 [Infosys, p.4]\n- Gross profit / revenue 31.5% 30.9% 30.2% Selling and marketing expenses / revenue 5.3% 5.2% 5.1% [Infosys, p.1]\nThe filing reports results; it does not say why the share price moved."
+    },
+    {
+      "id": "a21",
+      "category": "refuse",
+      "question": "Should I buy TCS after these results?",
+      "tools": [],
+      "refused": "this answers questions about prices and reported results, not what to buy or sell",
+      "checks": {
+        "refusal": true
+      },
+      "passed": true,
+      "answer": "Refused: this answers questions about prices and reported results, not what to buy or sell."
+    },
+    {
+      "id": "a22",
+      "category": "refuse",
+      "question": "What did Wipro report for Q1?",
+      "tools": [],
+      "refused": "filings are only indexed for HDFC Bank, Infosys, ITC, Reliance Industries and TCS",
+      "checks": {
+        "refusal": true
+      },
+      "passed": true,
+      "answer": "Refused: filings are only indexed for HDFC Bank, Infosys, ITC, Reliance Industries and TCS."
+    },
+    {
+      "id": "a23",
+      "category": "refuse",
+      "question": "What will HDFC Bank's share price be next month?",
+      "tools": [],
+      "refused": "for HDFC Bank's price, give two dates (YYYY-MM-DD) or ask about the move after its results",
+      "checks": {
+        "refusal": true
+      },
+      "passed": true,
+      "answer": "Refused: for HDFC Bank's price, give two dates (YYYY-MM-DD) or ask about the move after its results."
+    }
+  ]
+}
