@@ -3,7 +3,40 @@
 A market analyst agent for NSE stocks, built from two tools: prices from the
 [bhavcopy-pipeline](https://github.com/veer0608/bhavcopy-pipeline) warehouse, and
 cited passages from company results via [citerag](https://github.com/veer0608/citerag).
-The router that combines them comes next.
+A rule-based router decides which tools a question needs and builds the answer from
+their outputs only.
+
+```bash
+python -m market_analyst ask "Why did TCS fall after its Q1 results?"
+```
+
+```
+[tools: price, filings]
+TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, ...
+The question says it fell, but it rose 6.40% over this window.
+From TCS's Q1 FY27 filing:
+- TCS begins FY27 with continued growth; ... Q1 Revenue at ₹72,275 crore ... [TCS, p.1]
+The filing reports results; it does not say why the share price moved.
+```
+
+## Router
+
+`router.route()` turns a question into a `Route`: which tools to run, for which company,
+with which `PriceQuery` and which search text. It needs no API key, so it is the
+baseline a model-based router will have to beat.
+
+- Advice ("should I buy") is refused, and so is a question naming no company or symbol.
+- Price words send it to `price_query`, filing words to `filings.search`, both to both.
+- "After results" becomes a reaction window: the close before the results date to the
+  close five trading days later, counting the results day. Starting before it covers
+  both intraday and after-hours announcements, and HDFC Bank's Saturday board meeting.
+- A bare "why did it fall" has no topic to search for, so it searches for the headline
+  results instead of the question text.
+- The answer puts the move next to what the company reported and never claims one
+  caused the other. When the question assumes a direction the price did not take, it
+  says so.
+- Filing excerpts show the lines that match the question, so a table row such as
+  "Excise duty 10035.63" is shown rather than the passage's first line.
 
 ## Price tool
 
