@@ -96,17 +96,17 @@ with itself. Filing facts are the ones verified for citerag's NSE golden set.
 python -m market_analyst.answer_eval --out evals/runs/answers_rule_based.json
 ```
 
-Rule-based router: **16/23 at baseline, 18/23 after the heading-aware excerpt.**
+Rule-based router: **16/23 at baseline, 18/23 after the heading-aware excerpt, 21/23 with headline figures.**
 
-| Check | Baseline | + headings | What it asks |
-|---|---|---|---|
-| price window | 12/12 | 12/12 | the expected dates were used |
-| price value | 12/12 | 12/12 | the number matches raw closes, to 0.01 |
-| price shown | 12/12 | 12/12 | that number is in the answer |
-| retrieved | 8/12 | 8/12 | a returned passage holds the filing fact |
-| shown | 5/12 | **7/12** | the fact is visible in the answer, not only retrieved |
-| citations | 12/12 | 12/12 | every citation is the right company |
-| refusal | 23/23 | 23/23 | refused exactly the three it should |
+| Check | Baseline | + headings | + headline figures | What it asks |
+|---|---|---|---|---|
+| price window | 12/12 | 12/12 | 12/12 | the expected dates were used |
+| price value | 12/12 | 12/12 | 12/12 | the number matches raw closes, to 0.01 |
+| price shown | 12/12 | 12/12 | 12/12 | that number is in the answer |
+| retrieved | 8/12 | 8/12 | 11/12 | a returned passage holds the filing fact |
+| shown | 5/12 | 7/12 | **10/12** | the fact is visible in the answer, not only retrieved |
+| citations | 12/12 | 12/12 | 12/12 | every citation is the right company |
+| refusal | 23/23 | 23/23 | 23/23 | refused exactly the three it should |
 
 Prices are right everywhere, including GOODLUCK's August return across its 2:1 bonus.
 The weak step is the last one: three answers retrieved the fact and then did not show
@@ -152,6 +152,28 @@ also a tie-break: "itc" in the question matched the "ITC LIMITED" page header, l
 the page title to a tie with the revenue row. The excerpt now ignores the company's
 own name, which every passage of its filing shares. Back to 18/23 with the same checks
 passing, and both the ITC and HDFC NPA answers now win outright, not on a tie.
+
+**Headline figures, kept.** A "why did it move" question now skips search: `headline.py`
+reads the company's whole filing in page order and takes the first revenue figure and
+the first profit figure, where a headline term ("revenue", "net revenue", "profit after
+tax", "PAT", "net profit", "net income", "profit for the period") is followed closely by
+an amount. Ratios ("Profit after tax (PAT) / revenue 16.1%"), "profit before tax" and
+dates are not figures. Results releases lead with their headline, so the first match is
+the headline, which no word-overlap score could find:
+
+```
+Headline figures from Reliance Industries's Q1 FY27 filing:
+- Consolidated Revenue at ₹ 340,257 crore, up 24.5% Y-o-Y ... [Reliance Industries, p.1]
+- PAT on recurring basis at ₹ 23,196 crore, up 6.1% Y-o-Y ... [Reliance Industries, p.1]
+```
+
+It finds the right revenue and profit for all five companies, and fixed the three "why"
+questions it was aimed at (18/23 to 21/23, as predicted beforehand) with nothing else
+changing. **That is an in-sample number:** the patterns were written while reading these
+same five filings. Tests with phrasings from outside the corpus ("Net profit rose 12% to
+₹ 890.5 crore", "Revenue for the quarter stood at Rs. 1,234 crore") are the only
+evidence for other companies; how it does on their real releases is unmeasured. If it
+finds nothing, the answer falls back to search.
 
 
 A question is turned into a small fixed query (`PriceQuery`), validated against what

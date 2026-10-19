@@ -2,9 +2,9 @@
   "router": "rule_based",
   "summary": {
     "n": 23,
-    "passed": 18,
+    "passed": 21,
     "by_category": {
-      "both": "1/4",
+      "both": "4/4",
       "filings": "6/8",
       "price": "8/8",
       "refuse": "3/3"
@@ -13,8 +13,8 @@
       "price_window": "12/12",
       "price_value": "12/12",
       "price_shown": "12/12",
-      "retrieved": "8/12",
-      "shown": "7/12",
+      "retrieved": "11/12",
+      "shown": "10/12",
       "citations": "12/12",
       "refusal": "23/23"
     }
@@ -306,12 +306,12 @@
         "price_window": true,
         "price_value": true,
         "price_shown": true,
-        "retrieved": false,
-        "shown": false,
+        "retrieved": true,
+        "shown": true,
         "citations": true
       },
-      "passed": false,
-      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days.\nFrom HDFC Bank's Q1 FY27 filing:\n- leading broking firms. For the quarter ended June 30, 2026, HSL’s total revenue was ₹ 9.5 billion. Profit after tax for the quarter ended June 30, 2026 was ₹ 3.0 billion, as against [HDFC Bank, p.4]\n- (0.91% excluding NPAs in the agricultural segment), as against 1.15% as on March 31, 2026 (0.91% excluding NPAs in the agricultural segment), and 1.40% as on June 30, 2025 (1.14% excluding NPAs in the agricultural ... [HDFC Bank, p.3]\n- holds a 74.1% stake. For the quarter ended June 30, 2026, HDBFSL’s net revenue was at ₹ 31.8 billion. Profit after tax for the quarter ended June 30, 2026 was ₹ 7.9 billion [HDFC Bank, p.3]\nThe filing reports results; it does not say why the share price moved."
+      "passed": true,
+      "answer": "HDFCBANK (NSE) returned -9.37% from the close of 2026-07-17 to the close of 2026-07-24, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-17 (before results on 2026-07-18) to close on 2026-07-24, 5 trading days.\nHeadline figures from HDFC Bank's Q1 FY27 filing:\n- net revenue was ₹ 463.6 billion for the quarter ended June 30, ... [HDFC Bank, p.1]\n- Profit after tax (PAT) for the quarter was at ₹ 190.6 billion, a growth of 5.0% over the quarter ... [HDFC Bank, p.2]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a18",
@@ -332,7 +332,7 @@
         "citations": true
       },
       "passed": true,
-      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.\nFrom TCS's Q1 FY27 filing:\n- Highlights of the Quarter Ended June 30, 2026 • Revenue at ₹72,275 crore, +2.2% QoQ, +13.9% YoY [TCS, p.1]\n- - Q1 Revenue at ₹72,275 crore; Growth +2.2% QoQ, +13.9% YoY in INR, +0.4% QoQ in CC - Annualized AI Revenue at US$ 2.6 billion in Q1FY27, up 13.6% QoQ [TCS, p.1]\n- Growth by Markets Q-o-Q Y-o-Y [TCS, p.3]\nThe filing reports results; it does not say why the share price moved."
+      "answer": "TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.\nHeadline figures from TCS's Q1 FY27 filing:\n- Revenue at ₹72,275 crore [TCS, p.1]\n- Net Income at ₹13,849 crore*, +8.5% YoY* [TCS, p.1]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a19",
@@ -348,12 +348,12 @@
         "price_window": true,
         "price_value": true,
         "price_shown": true,
-        "retrieved": false,
-        "shown": false,
+        "retrieved": true,
+        "shown": true,
         "citations": true
       },
-      "passed": false,
-      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days.\nFrom Reliance Industries's Q1 FY27 filing:\n- B. OPERATIONAL UPDATE: o-Y led by strong growth in subscription revenue and Digital Entertainment Ad revenue. EBITDA from [Reliance Industries, p.18]\n- 2 Revenue from Operations 79,745 87,344 73,720 8.2 327,143 3 EBITDA from Operations 5,935 6,690 6,044 (1.8) 26,128 [Reliance Industries, p.7]\n- * EBITDA Margin is calculated on Revenue from Operations Registered Office: Corporate Communications: Telephone : (+91 22) 3555 5000 [Reliance Industries, p.4]\nThe filing reports results; it does not say why the share price moved."
+      "passed": true,
+      "answer": "RELIANCE (NSE) returned -1.88% from the close of 2026-07-16 to the close of 2026-07-23, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-16 (before results on 2026-07-17) to close on 2026-07-23, 5 trading days.\nHeadline figures from Reliance Industries's Q1 FY27 filing:\n- Consolidated Revenue at ₹ 340,257 crore, up 24.5% Y-o-Y Record quarterly ... [Reliance Industries, p.1]\n- PAT on recurring basis at ₹ 23,196 crore, up 6.1% Y-o-Y JPL Record EBITDA at ₹ ... [Reliance Industries, p.1]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a20",
@@ -369,12 +369,12 @@
         "price_window": true,
         "price_value": true,
         "price_shown": true,
-        "retrieved": false,
-        "shown": false,
+        "retrieved": true,
+        "shown": true,
         "citations": true
       },
-      "passed": false,
-      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days.\nFrom Infosys's Q1 FY27 filing:\n- Profit before tax (PBT) / revenue 22.9% 23.0% 22.4% Tax / revenue 6.7% 6.7% 5.9% [Infosys, p.1]\n- Operating expenses:: Operating profit 1,072 1,028 4.3% Other income, net (1) 91 110 -17.3% [Infosys, p.4]\n- Gross profit / revenue 31.5% 30.9% 30.2% Selling and marketing expenses / revenue 5.3% 5.2% 5.1% [Infosys, p.1]\nThe filing reports results; it does not say why the share price moved."
+      "passed": true,
+      "answer": "INFY (NSE) returned 9.84% from the close of 2026-07-22 to the close of 2026-07-29, adjusted for splits and bonuses (5 trading days).\nWindow: close on 2026-07-22 (before results on 2026-07-23) to close on 2026-07-29, 5 trading days.\nHeadline figures from Infosys's Q1 FY27 filing:\n- Revenues 48,211 42,279 14.0% Cost of Sales 33,033 29,224 ... [Infosys, p.3]\n- Net profit (before non-controlling interest) 7,775 6,924 12.3% Net profit (after ... [Infosys, p.3]\nThe filing reports results; it does not say why the share price moved."
     },
     {
       "id": "a21",

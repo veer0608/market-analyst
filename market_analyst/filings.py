@@ -15,6 +15,7 @@ sets them before the first import and checks they took:
 from __future__ import annotations
 
 import os
+import sqlite3
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -113,6 +114,23 @@ def search(question: str, *, company: Company | None = None, top_k: int = 5) -> 
     if company is not None:
         passages = [p for p in passages if p.company is company]
     return passages[:top_k]
+
+
+def document_passages(company: Company) -> list[Passage]:
+    """Every chunk of the company's filing in reading order (page, then chunk).
+    Read straight from the index, read-only; no retrieval and no models."""
+    if not db_path().exists():
+        raise FileNotFoundError(f"filings index not found at {db_path()}; run build_index() first")
+    con = sqlite3.connect(f"file:{db_path().as_posix()}?mode=ro", uri=True)
+    try:
+        rows = con.execute(
+            "SELECT c.id, c.page_number, c.page_label, c.content FROM chunks c "
+            "JOIN documents d ON d.id = c.document_id WHERE d.title = ? "
+            "ORDER BY c.page_number, c.chunk_index", [company.filing_title]).fetchall()
+    finally:
+        con.close()
+    return [Passage(company, company.filing_title, page, label, str(cid), text, 0.0)
+            for cid, page, label, text in rows]
 
 
 def build_index() -> list[str]:

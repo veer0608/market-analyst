@@ -29,6 +29,8 @@ from .price_query import (
 from .prices import Vocabulary
 
 REACTION_DAYS = 5  # trading days from the results date, inclusive
+# Search text for a headline answer, used only when headline.py finds no figures.
+HEADLINE_FALLBACK = "{name} quarter highlights revenue profit margin growth"
 
 _ADVICE = re.compile(r"\b(should i|buy|sell|invest(?:ing)?|target price|recommend\w*|good stock)\b", re.I)
 _PRICE = re.compile(
@@ -60,6 +62,9 @@ class Route:
     filing_query: str | None = None
     refused: str | None = None
     notes: tuple[str, ...] = ()
+    # "Why did it move?" has no topic to search for: show the filing's headline
+    # revenue and profit (headline.py) instead of search results.
+    headline: bool = False
 
 
 @dataclass
@@ -132,8 +137,10 @@ def route(question: str, vocab: Vocabulary, con: duckdb.DuckDBPyConnection) -> R
         tools.append("filings")
         filing_query = question
         if not _FILING_TOPIC.search(question):
-            # "Why did it fall?" has no topic to search for; ask for the headline results.
-            filing_query = f"{company.name} quarter highlights revenue profit margin growth"
+            # "Why did it fall?" has no topic to search for; show the headline results.
+            return Route(tools=tuple(tools), company=company, price_query=price_query,
+                         filing_query=HEADLINE_FALLBACK.format(name=company.name),
+                         notes=tuple(notes), headline=True)
     return Route(tools=tuple(tools), company=company, price_query=price_query,
                  filing_query=filing_query, notes=tuple(notes))
 
@@ -187,9 +194,13 @@ def run(question: str, vocab: Vocabulary, con: duckdb.DuckDBPyConnection, *,
     if "price" in r.tools:
         answer.price = execute_price_query(r.price_query, con)
     if "filings" in r.tools:
-        if search is None:
-            from .filings import search
-        answer.passages = search(r.filing_query, company=r.company, top_k=top_k)
+        if r.headline:
+            from .headline import headline_passages
+            answer.passages = headline_passages(r.company)
+        if not answer.passages:
+            if search is None:
+                from .filings import search
+            answer.passages = search(r.filing_query, company=r.company, top_k=top_k)
     answer.text = compose(answer)
     return answer
 
@@ -207,6 +218,9 @@ def compose(a: Answer) -> str:
     if "filings" in r.tools:
         if not a.passages:
             parts.append(f"{r.company.name}'s Q1 FY27 filing has nothing that matches this question.")
+        elif r.headline and all(len(p.text) < 200 for p in a.passages):
+            parts.append(f"Headline figures from {r.company.name}'s Q1 FY27 filing:")
+            parts += [f"- {p.text} {p.citation()}" for p in a.passages]
         else:
             parts.append(f"From {r.company.name}'s Q1 FY27 filing:")
             name_words = set(re.findall(r"[a-z]{3,}", " ".join((r.company.name, *r.company.aliases)).lower()))

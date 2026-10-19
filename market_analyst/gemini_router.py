@@ -30,7 +30,7 @@ import duckdb
 from .companies import BY_SYMBOL, COMPANIES
 from .price_query import METRICS, parse_price_payload
 from .prices import Vocabulary
-from .router import Route, _FILING_TOPIC, reaction_window, trading_days
+from .router import HEADLINE_FALLBACK, Route, _FILING_TOPIC, reaction_window, trading_days
 
 # Kept off the models reruns' daily job uses (3.7/3.6/3.5 flash, 3.5-flash-lite).
 LADDER = ("gemini-3.1-flash-lite", "gemini-3-flash-preview")
@@ -184,10 +184,10 @@ def to_route(p: dict, vocab: Vocabulary, con: duckdb.DuckDBPyConnection) -> Rout
         except ValueError as e:
             return Route(tools=(), refused=f"price query rejected: {e}")
 
-    filing_query = None
+    filing_query, headline = None, False
     if "filings" in tools:
-        filing_query = p.get("filing_query") or f"{company.name} quarter highlights revenue profit margin growth"
-        if not _FILING_TOPIC.search(filing_query) and "why" in filing_query.lower():
-            filing_query = f"{company.name} quarter highlights revenue profit margin growth"
+        filing_query = p.get("filing_query")
+        if not filing_query or (not _FILING_TOPIC.search(filing_query) and "why" in filing_query.lower()):
+            filing_query, headline = HEADLINE_FALLBACK.format(name=company.name), True
     return Route(tools=tools, company=company, price_query=price_query,
-                 filing_query=filing_query, notes=tuple(notes))
+                 filing_query=filing_query, notes=tuple(notes), headline=headline)
