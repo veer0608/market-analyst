@@ -1,10 +1,12 @@
 # market-analyst
 
+[![ci](https://github.com/veer0608/market-analyst/actions/workflows/ci.yml/badge.svg)](https://github.com/veer0608/market-analyst/actions/workflows/ci.yml)
+
 A market analyst agent for NSE stocks, built from two tools: prices from the
 [bhavcopy-pipeline](https://github.com/veer0608/bhavcopy-pipeline) warehouse, and
 cited passages from company results via [citerag](https://github.com/veer0608/citerag).
-A rule-based router decides which tools a question needs and builds the answer from
-their outputs only.
+A router decides which tools a question needs, and the answer is built from their
+outputs only: every number traces to price rows, every claim to a cited page.
 
 ```bash
 python -m market_analyst ask "Why did TCS fall after its Q1 results?"
@@ -12,12 +14,30 @@ python -m market_analyst ask "Why did TCS fall after its Q1 results?"
 
 ```
 [tools: price, filings]
-TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, ...
+TCS (NSE) returned 6.40% from the close of 2026-07-08 to the close of 2026-07-15, adjusted for splits and bonuses (5 trading days).
 The question says it fell, but it rose 6.40% over this window.
-From TCS's Q1 FY27 filing:
-- TCS begins FY27 with continued growth; ... Q1 Revenue at ₹72,275 crore ... [TCS, p.1]
+Window: close on 2026-07-08 (before results on 2026-07-09) to close on 2026-07-15, 5 trading days.
+Headline figures from TCS's Q1 FY27 filing:
+- Revenue at ₹72,275 crore [TCS, p.1]
+- Net Income at ₹13,849 crore*, +8.5% YoY* [TCS, p.1]
 The filing reports results; it does not say why the share price moved.
 ```
+
+## Results
+
+| Measure | Result | Notes |
+|---|---|---|
+| End-to-end answers | **21/23** | prices 12/12 against figures from raw closes, citations 12/12, refusals 23/23; filing facts shown 10/12 |
+| Router tool choice | **26/30** | rule-based and Gemini (`gemini-3.1-flash-lite`) tie, on different questions; neither answered a question it should refuse |
+| Filings retrieval (citerag) | recall@5 **0.80** | five companies' results; 0.52 before titling each chunk with its company |
+| Headline extractor, out of sample | 2/2 | one unseen company (HCLTech); one data point, not a rate |
+
+The same person wrote the agent and both question sets, so these are not independent
+tests, and the answer eval is in-sample for the headline extractor. Each section below
+says what a number does and does not show, and records what was tried and rejected.
+
+CI runs the tests that need no data (69); the 36 that need the price warehouse or the
+filings index skip there and run where those exist.
 
 ## Router
 
